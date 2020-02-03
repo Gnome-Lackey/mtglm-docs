@@ -1,4 +1,4 @@
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VKWKZKMLU7YVU&currency_code=USD&source=url) If you like what you see, why not buy us a coffee?
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VKWKZKMLU7YVU&currency_code=USD&source=url) If you like what you see, why not buy this lowly gnome a coffee? 
 
 # Magic the Gathering: League Manager Documentation
 

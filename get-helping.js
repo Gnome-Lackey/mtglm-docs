@@ -97,6 +97,19 @@ const cloneCommand = cloneRepoList.map((link) => `git clone ${link}`).join(" && 
 
 exec(cloneCommand, (error, stdout, stderr) => {
   if (error || stderr) {
+    console.log("Please make sure that you've forked all the original repositories:");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-infrastructure")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-web")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-sdk")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-auth")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-scryfall")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-season")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-match")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-player")
+    console.log("\n")
+    console.log("For more information, please see docs on how to help out:")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-docs/wiki#helping-out")
+
     return handleError(error, stderr);
   }
 

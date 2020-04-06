@@ -19,22 +19,28 @@ const seasonServiceRepo = "mtglm-service-season";
 const webRepo = "mtglm-web";
 
 const myArgs = process.argv.slice(2);
-const githubNamespace = myArgs[0];
+const githubNamespace = `git@github.com:${myArgs[0]}`;
+const isRoot = "Gnome-Lackey";
 
 if (!githubNamespace) {
   console.log("Error: Missing value for forked github namespace.");
   console.log("\nExample:");
   console.log("\t-> node get-started.js [forked namespace]\n");
   return -1;
+} else if (isRoot) {
+  console.log("Error: Please don't use the original namespace. Please fork the repositories in to your namespace.");
+  console.log("\nExample:");
+  console.log("\t-> node get-started.js [forked namespace]\n");
+  return -1;
 }
 
-const authServiceLink = `${githubNamespace}/${authServiceRepo}`;
-const infraLink = `${githubNamespace}/${infraRepo}`;
-const matchServiceLink = `${githubNamespace}/${matchServiceRepo}`;
-const playerServiceLink = `${githubNamespace}/${playerServiceRepo}`;
-const scryfallServiceLink = `${githubNamespace}/${scryfallServiceRepo}`;
-const seasonServiceLink = `${githubNamespace}/${seasonServiceRepo}`;
-const webLink = `${githubNamespace}/${webRepo}`;
+const authServiceLink = `${githubNamespace}/${authServiceRepo}.git`;
+const infraLink = `${githubNamespace}/${infraRepo}.git`;
+const matchServiceLink = `${githubNamespace}/${matchServiceRepo}.git`;
+const playerServiceLink = `${githubNamespace}/${playerServiceRepo}.git`;
+const scryfallServiceLink = `${githubNamespace}/${scryfallServiceRepo}.git`;
+const seasonServiceLink = `${githubNamespace}/${seasonServiceRepo}.git`;
+const webLink = `${githubNamespace}/${webRepo}.git`;
 
 function handleError(error, stderr) {
   if (error) {
@@ -71,7 +77,9 @@ function buildResources() {
   ];
 
   const buildCommand = buildRepoList
-    .map((repo) => `cd ${repo} && yarn && git checkout -b develop && git push origin develop && cd ..`)
+    .map(
+      (repo) => `cd ${repo} && yarn && git checkout -b develop && git push origin develop && cd ..`
+    )
     .join(" && ");
 
   exec(buildCommand, (error, stdout, stderr) => {
@@ -98,17 +106,17 @@ const cloneCommand = cloneRepoList.map((link) => `git clone ${link}`).join(" && 
 exec(cloneCommand, (error, stdout, stderr) => {
   if (error || stderr) {
     console.log("Please make sure that you've forked all the original repositories:");
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-infrastructure")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-web")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-sdk")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-auth")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-scryfall")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-season")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-match")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-player")
-    console.log("\n")
-    console.log("For more information, please see docs on how to help out:")
-    console.log("\thttps://github.com/Gnome-Lackey/mtglm-docs/wiki#helping-out")
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-infrastructure");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-web");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-sdk");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-auth");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-scryfall");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-season");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-match");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-service-player");
+    console.log("\n");
+    console.log("For more information, please see docs on how to help out:");
+    console.log("\thttps://github.com/Gnome-Lackey/mtglm-docs/wiki#helping-out");
 
     return handleError(error, stderr);
   }

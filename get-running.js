@@ -20,13 +20,13 @@ const webRepo = "mtglm-web";
 
 const githubNamespace = "git@github.com:Gnome-Lackey";
 
-const authServiceLink = `${githubNamespace}/${authServiceRepo}`;
-const infraLink = `${githubNamespace}/${infraRepo}`;
-const matchServiceLink = `${githubNamespace}/${matchServiceRepo}`;
-const playerServiceLink = `${githubNamespace}/${playerServiceRepo}`;
-const scryfallServiceLink = `${githubNamespace}/${scryfallServiceRepo}`;
-const seasonServiceLink = `${githubNamespace}/${seasonServiceRepo}`;
-const webLink = `${githubNamespace}/${webRepo}`;
+const authServiceLink = `${githubNamespace}/${authServiceRepo}.git`;
+const infraLink = `${githubNamespace}/${infraRepo}.git`;
+const matchServiceLink = `${githubNamespace}/${matchServiceRepo}.git`;
+const playerServiceLink = `${githubNamespace}/${playerServiceRepo}.git`;
+const scryfallServiceLink = `${githubNamespace}/${scryfallServiceRepo}.git`;
+const seasonServiceLink = `${githubNamespace}/${seasonServiceRepo}.git`;
+const webLink = `${githubNamespace}/${webRepo}.git`;
 
 function handleError(error, stderr) {
   if (error) {

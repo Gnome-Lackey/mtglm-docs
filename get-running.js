@@ -41,7 +41,7 @@ function handleError(error, stderr) {
 }
 
 function buildInfrastructure() {
-  const buildInfraCommand = `cd ./${infraRepo} && yarn && yarn build`;
+  const buildInfraCommand = `cd ./${infraRepo} && yarn && yarn deploy`;
 
   exec(buildInfraCommand, (error, stdout, stderr) => {
     if (error || stderr) {
@@ -59,7 +59,7 @@ function buildResources() {
     scryfallServiceRepo,
     matchServiceRepo,
     authServiceRepo,
-    playerServiceRepo,
+    playerServiceRepo
   ];
 
   const buildCommand = buildRepoList
@@ -82,7 +82,7 @@ const cloneRepoList = [
   scryfallServiceLink,
   matchServiceLink,
   authServiceLink,
-  playerServiceLink,
+  playerServiceLink
 ];
 
 const cloneCommand = cloneRepoList.map((link) => `git clone ${link}`).join(" && ");

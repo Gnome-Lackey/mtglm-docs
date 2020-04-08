@@ -1,0 +1,20 @@
+{
+  "name": "mtglm-docs",
+  "version": "1.0.0",
+  "description": "Documentation covering how to use the MtG: League Manager",
+  "main": "get-running.js",
+  "scripts": {
+    "get-started": "node get-running.js",
+    "get-helping": "node get-helping.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gnome-Lackey/mtglm-docs.git"
+  },
+  "author": "herrpfister",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gnome-Lackey/mtglm-docs/issues"
+  },
+  "homepage": "https://github.com/Gnome-Lackey/mtglm-docs#readme"
+}

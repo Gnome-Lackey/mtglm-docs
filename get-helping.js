@@ -55,7 +55,7 @@ function handleError(error, stderr) {
 }
 
 function buildInfrastructure() {
-  const buildInfraCommand = `cd ./${infraRepo} && yarn && yarn build`;
+  const buildInfraCommand = `cd ./${infraRepo} && yarn && yarn deploy`;
 
   exec(buildInfraCommand, (error, stdout, stderr) => {
     if (error || stderr) {
@@ -78,7 +78,7 @@ function buildResources() {
 
   const buildCommand = buildRepoList
     .map(
-      (repo) => `cd ${repo} && yarn && git checkout -b develop && git push origin develop && cd ..`
+      (repo) => `cd ${repo} && yarn && git checkout -b dev && git push origin dev && cd ..`
     )
     .join(" && ");
 
